@@ -31,14 +31,12 @@ export default function todoApp(state = initialState, action) {
         case TOGGLE_TODO:{
             return {
                 ...state,
-                todos: [
-                    state.todos.map((todo, index) => {
+                todos: state.todos.map((todo, index) => {
                         if (index === action.id){
                             return {...todo, completed:!todo.completed}
                         }
                         return todo
                     })
-                ]
             }
         }
         default:
