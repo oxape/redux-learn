@@ -9,6 +9,9 @@ const initialState = {
 }
 //TODO 没有export是否在store中import时会报错
 export default function todoApp(state = initialState, action) {
+    if (typeof action === 'undefined'){
+        return state
+    }
     switch (action.type) {
         case SET_VISIBILITY_FILTER: {
             return {...state, visibilityFilter:action.filter}
