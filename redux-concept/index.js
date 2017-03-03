@@ -13,7 +13,6 @@ const actions = {
     TOGGLE_TODO:{ type: 'TOGGLE_TODO', index: 1 },
     SET_VISIBILITY_FILTER:{ type: 'SET_VISIBILITY_FILTER', filter: 'SHOW_ALL' },
 };
-//Reducer
 function todos(state = [], action) {
     switch (action.type) {
         case 'ADD_TODO':

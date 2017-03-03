@@ -7,8 +7,8 @@ const initialState = {
     visibilityFilter: VisibilityFilters.SHOW_ALL,
     todos: []
 }
-
-function todoApp(state = initialState, action) {
+//TODO 没有export是否在store中import时会报错
+export default function todoApp(state = initialState, action) {
     switch (action.type) {
         case SET_VISIBILITY_FILTER: {
             return {...state, visibilityFilter:action.filter}
@@ -17,7 +17,7 @@ function todoApp(state = initialState, action) {
             return {
                 ...state,
                 todos:[
-                        ...todos,
+                        ...state.todos,
                         {
                             text: action.text,
                             completed: false
@@ -30,7 +30,7 @@ function todoApp(state = initialState, action) {
                 ...state,
                 todos: [
                     state.todos.map((todo, index) => {
-                        if (index == action.id){
+                        if (index === action.id){
                             return {...todo, completed:!todo.completed}
                         }
                         return todo
@@ -41,5 +41,5 @@ function todoApp(state = initialState, action) {
         default:
             return state
     }
-    return state
 }
+
