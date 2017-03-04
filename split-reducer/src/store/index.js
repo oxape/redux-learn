@@ -6,6 +6,6 @@ import todoApp from '../reducers'
 import createLogger from 'redux-logger'
 
 const logger = createLogger();
-let store = createStore(todoApp, todoApp(), applyMiddleware(logger))
+let store = createStore(todoApp, {}, applyMiddleware(logger))
 
 export default store

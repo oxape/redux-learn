@@ -2,45 +2,43 @@
  * Created by oxape on 2017/3/3.
  */
 import {VisibilityFilters, SET_VISIBILITY_FILTER, ADD_TODO, TOGGLE_TODO} from '../constants/ActionTypes'
+import { combineReducers } from 'redux'
 
-const initialState = {
-    visibilityFilter: VisibilityFilters.SHOW_ALL,
-    todos: []
-}
-//TODO 没有export是否在store中import时会报错
-export default function todoApp(state = initialState, action) {
-    if (typeof action === 'undefined'){
-        return state
-    }
+
+function visibilityFilter(state = VisibilityFilters.SHOW_ALL, action) {
     switch (action.type) {
-        case SET_VISIBILITY_FILTER: {
-            return {...state, visibilityFilter:action.filter}
-        }
-        case ADD_TODO: {
-            return {
+        case SET_VISIBILITY_FILTER:
+            return action.filter
+        default:
+            return state
+    }
+}
+
+function todos(state=[], action) {
+    switch (action.type){
+        case ADD_TODO:
+            return [
                 ...state,
-                todos:[
-                        ...state.todos,
-                        {
-                            text: action.text,
-                            completed: false
-                        }
-                    ]
-            }
-        }
+                {
+                    text:action.text,
+                    completed: false,
+                }
+            ]
         case TOGGLE_TODO:{
-            return {
-                ...state,
-                todos: state.todos.map((todo, index) => {
-                        if (index === action.id){
-                            return {...todo, completed:!todo.completed}
-                        }
-                        return todo
-                    })
-            }
+            return state.map((todo, index) => {
+                if (index === action.id) {
+                    return {...todo, completed: !todo.completed}
+                }
+                return todo
+            })
         }
         default:
             return state
     }
 }
+
+const todoApp = combineReducers({visibilityFilter, todos})
+
+export default todoApp
+
 
