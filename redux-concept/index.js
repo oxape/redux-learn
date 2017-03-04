@@ -120,7 +120,7 @@ class TodoApp extends React.Component {
             ...actions.ADD_TODO,
             text:text,
         };
-        //TODO 是不是这种写法不行 this.state = todoApp(this.state, actions.ADD_TODO);
+        //这种写法不行 this.state = todoApp(this.state, actions.ADD_TODO);
         this.setState(todoApp(this.state, action));
     }
 
