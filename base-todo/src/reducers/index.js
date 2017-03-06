@@ -7,7 +7,7 @@ const initialState = {
     visibilityFilter: VisibilityFilters.SHOW_ALL,
     todos: []
 }
-//TODO 没有export是否在store中import时会报错
+
 export default function todoApp(state = initialState, action) {
     if (typeof action === 'undefined'){
         return state
