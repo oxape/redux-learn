@@ -1,0 +1,21 @@
+{
+  "name": "with-react",
+  "version": "1.0.0",
+  "description": "redux with react",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "author": "oxape",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "react-scripts": "^0.9.3",
+    "redux-logger": "^2.8.2"
+  }
+}
