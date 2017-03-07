@@ -8,6 +8,7 @@ learn order
 * split-reducer
 * with-react
 * async-actions
+* reddit-posts
 
 
 ## Run
