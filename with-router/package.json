@@ -4,7 +4,7 @@
   "description": "redux with react router",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --progress --colors --content-base build"
+    "start": "webpack-dev-server --devtool eval --progress --colors --content-base build"
   },
   "author": "oxape",
   "license": "ISC",
