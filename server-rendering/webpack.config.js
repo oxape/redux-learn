@@ -14,11 +14,13 @@ var isProduction = function () {
     return process.env.NODE_ENV === 'production';
 };
 //publicPath 像图片，css等会被加入这个url 例如<img src="/static/a.png" />，指的是路径输出而不是文件输出
+//presets:['react-hmre'],服务器才能跑通,应该是babel-register使用了这个配置、好像babel-regist没有使用这个，而是使用了.babelrc
 module.exports = {
-    entry: ['./src/index.js'],
+    entry: ['./client/index.js'],
     output:{
         path:path.join(__dirname, 'dist'),
-        filename:'index_bundle.js',
+        filename:'bundle.js',
+        publicPath: '/static/'
     },
     module:{
         loaders:[{
