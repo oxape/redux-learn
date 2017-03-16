@@ -26,9 +26,7 @@ app.use(webpackHotMiddleware(compiler))
 function handleRender(req, res) {
     const store = createStore(todoApp)
     const html = renderToString(
-        <Provider store={store}>
             <App />
-        </Provider>
     )
     const preloaderState = store.getState();
 
@@ -36,8 +34,7 @@ function handleRender(req, res) {
 }
 
 function renderFullPage(html, preloadedState) {
-    return `
-    <!doctype html>
+    return `<!doctype html>
     <html>
       <head>
         <title>Redux Universal Example</title>
