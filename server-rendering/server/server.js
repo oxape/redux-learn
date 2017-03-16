@@ -26,7 +26,9 @@ app.use(webpackHotMiddleware(compiler))
 function handleRender(req, res) {
     const store = createStore(todoApp)
     const html = renderToString(
+        <Provider store={store}>
             <App />
+        </Provider>
     )
     const preloaderState = store.getState();
 

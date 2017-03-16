@@ -8,7 +8,9 @@ import VisibleTodoList from '../containers/VisibleTodoList'
 
 const App = ()=> (
     <div>
-        123
+        <AddTodo />
+        <VisibleTodoList />
+        <Footer />
     </div>
 )
 

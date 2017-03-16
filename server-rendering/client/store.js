@@ -5,7 +5,7 @@ import { createStore, applyMiddleware} from 'redux'
 import todoApp from '../src/reducers'
 import { render } from 'react-dom'
 import React from 'react'
-import { Provider } from 'redux'
+import { Provider } from 'react-redux'
 import App from '../src/components/App'
 
 // 通过服务端注入的全局变量得到初始 state

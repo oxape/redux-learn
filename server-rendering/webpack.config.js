@@ -2,8 +2,9 @@
  * Created by oxape on 2017/3/14.
  */
 module.exports = {
+    devtool: 'inline-source-map',
     entry: [
-        './client/index.js',
+        './client/index.js'
     ],
     output: {
         path: `${__dirname}/dist`,
