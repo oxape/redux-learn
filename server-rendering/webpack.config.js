@@ -1,6 +1,8 @@
 /**
  * Created by oxape on 2017/3/14.
  */
+const webpack = require('webpack')
+
 module.exports = {
     devtool: 'inline-source-map',
     entry: [
@@ -12,11 +14,6 @@ module.exports = {
         publicPath: '/static/'
     },
     module: {
-        // 優化並使用 HotModuleReplacement
-        // plugins: [
-        //   new webpack.optimize.OccurrenceOrderPlugin(),
-        //   new webpack.HotModuleReplacementPlugin()
-        // ],
         loaders: [{
             test: /\.js$/,
             exclude: /node_modules/,
@@ -26,4 +23,7 @@ module.exports = {
             },
         }],
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
 };

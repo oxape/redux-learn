@@ -5,14 +5,13 @@ import path from 'path'
 import Express from 'express'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import todoApp from '../src/reducers'
+import configureStore from '../src/store'
 import App from '../src/components/App'
 
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
-// import webpackHotMiddleware from 'webpack-hot-middleware'
+import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpackConfig from '../webpack.config'
 
 const app = Express()
@@ -21,10 +20,10 @@ const port = 3000
 // Use this middleware to set up hot module reloading via webpack.
 const compiler = webpack(webpackConfig)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))
-// app.use(webpackHotMiddleware(compiler))
+app.use(webpackHotMiddleware(compiler))
 
 function handleRender(req, res) {
-    const store = createStore(todoApp)
+    const store = configureStore()
     const html = renderToString(
         <Provider store={store}>
             <App />
